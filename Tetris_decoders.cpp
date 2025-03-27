@@ -53,35 +53,49 @@ void InitializeBoard() {
 void DrawBoard() {
     system("cls");
     cout << "Score: " << score << " Level: " << level << endl;
-    std::cout << "######################" << std::endl;
+    cout << "######################" << endl;
     for (int i = 0; i < boardHeight; i++) {
-        std::cout << "|";
+        cout << "|";
         for (int j = 0; j < boardWidth; j++) {
             if (board[i][j] != ' ') {
                 SetColor(board[i][j] - '0');
-                std::cout << '*';
+                cout << '*';
                 ResetColor();
-                std::cout << " ";
+                cout << " ";
             } else {
-                std::cout << board[i][j] << " ";
+                cout << board[i][j] << " ";
             }
         }
-        std::cout << "|" << std::endl;
+        cout << "|" << endl;
     }
-    std::cout << "######################" << std::endl;
+    cout << "######################" << endl;
 }
 
 Tetromino CreateTetromino() {
     Tetromino t;
     int type = rand() % 7;
     switch (type) {
-    case 0: t.shape = { {0,0}, {1,0}, {0,1}, {1,1} }; t.symbol = '1'; t.color = 14; break; // O
-    case 1: t.shape = { {0,0}, {1,0}, {2,0}, {3,0} }; t.symbol = '2'; t.color = 11; break; // I
-    case 2: t.shape = { {0,0}, {1,0}, {2,0}, {1,1} }; t.symbol = '3'; t.color = 13; break; // T
-    case 3: t.shape = { {0,0}, {1,0}, {1,1}, {2,1} }; t.symbol = '4'; t.color = 12; break; // S
-    case 4: t.shape = { {0,1}, {1,1}, {1,0}, {2,0} }; t.symbol = '5'; t.color = 10; break; // Z
-    case 5: t.shape = { {0,0}, {0,1}, {1,1}, {2,1} }; t.symbol = '6'; t.color = 9;  break; // L
-    case 6: t.shape = { {0,1}, {1,1}, {2,1}, {2,0} }; t.symbol = '7'; t.color = 13; break; // J
+    case 0: t.shape = { {0,0}, {1,0}, {0,1}, {1,1} };
+        t.symbol = '1'; t.color = 14;
+        break; // O
+    case 1: t.shape = { {0,0}, {1,0}, {2,0}, {3,0} };
+        t.symbol = '2'; t.color = 11;
+        break; // I
+    case 2: t.shape = { {0,0}, {1,0}, {2,0}, {1,1} };
+        t.symbol = '3'; t.color = 13;
+        break; // T
+    case 3: t.shape = { {0,0}, {1,0}, {1,1}, {2,1} };
+        t.symbol = '4'; t.color = 12;
+        break; // S
+    case 4: t.shape = { {0,1}, {1,1}, {1,0}, {2,0} };
+        t.symbol = '5'; t.color = 10;
+        break; // Z
+    case 5: t.shape = { {0,0}, {0,1}, {1,1}, {2,1} };
+        t.symbol = '6'; t.color = 9;
+        break; // L
+    case 6: t.shape = { {0,1}, {1,1}, {2,1}, {2,0} };
+        t.symbol = '7'; t.color = 13;
+        break; // J
     }
     return t;
 }
