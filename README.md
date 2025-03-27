@@ -1,49 +1,66 @@
-# InSem2_Tetris_Decoders
-
 # Tetris Game in C++
 
-A simple console-based Tetris game written in C++ using Windows API for colored output and keyboard input.
+## 📜 Overview
+This is a simple command-line Tetris game written in C++ that runs in the Windows console. The game includes basic Tetris mechanics such as piece movement, rotation, line clearing, scoring, and levels.
 
-## Features
-- Classic Tetris gameplay
-- Different Tetromino shapes
-- Scoring and leveling system
-- Basic game over detection
-- Simple rotation mechanics
+## 🎮 Features
+- Classic Tetris gameplay with seven tetrominoes (I, O, T, S, Z, L, J)
+- Random tetromino generation
+- Collision detection and line clearing
+- Increasing difficulty with levels
+- Score tracking
+- Simple keyboard controls
+- Console color support for different tetrominoes
 
-## Requirements
-- Windows OS
-- C++ Compiler (GCC, MSVC, or Clang)
+## 🛠️ Installation & Compilation
+### Prerequisites
+- Windows OS (required for `conio.h` and `windows.h` dependencies)
+- A C++ compiler such as MinGW (for `g++`)
 
-## How to Compile and Run
-1. Open a terminal or command prompt.
-2. Compile the program using a C++ compiler:
-   ```sh
-   g++ s1+s2.cpp -o tetris.exe -static-libstdc++ -static-libgcc
-   ```
-3. Run the executable:
-   ```sh
-   ./tetris.exe
-   ```
+### Compilation
+To compile the game, use the following command:
+```sh
+ g++ tetris_decoders.cpp -o tetris.exe -std=c++11
+```
 
-## Controls
-- `A` - Move Left
-- `D` - Move Right
-- `W` - Rotate
-- `S` - Move Down (not implemented yet)
+### Running the Game
+Once compiled, run the executable:
+```sh
+ ./tetris.exe
+```
 
-## Preview
-![Tetris Screenshot](https://via.placeholder.com/500)
+## ⌨️ Controls
+- `A` → Move Left
+- `D` → Move Right
+- `W` → Rotate Piece
+- `S` → Soft Drop
+- `ESC` → Exit the game
 
-## Future Improvements
-- Implement `S` key for soft drop
-- Add a better randomization system for Tetrominoes
-- Improve collision detection
-- Implement hold and preview system
+## 📜 Game Rules
+1. The game starts with an empty board.
+2. Random tetrominoes fall from the top.
+3. Players move and rotate the tetrominoes to fit them efficiently.
+4. Completing a horizontal line clears that line and increases the score.
+5. The game gets faster as the level increases.
+6. The game ends when the tetrominoes stack to the top of the board.
 
-## Contributing
-Feel free to submit pull requests or report issues!
+## 🖥️ Code Structure
+- `struct Tetromino` → Defines tetromino shape, color, and rotation
+- `InitializeBoard()` → Initializes the game board
+- `DrawBoard()` → Renders the game board in the console
+- `CreateTetromino()` → Generates a random tetromino
+- `CheckCollision()` → Checks if a move is valid
+- `PlacePiece()` → Locks the current piece in place
+- `ClearLines()` → Removes full lines and updates the score
+- `Input()` → Reads player input
+- `Update()` → Updates the game state per frame
 
-## License
-This project is open-source under the MIT License.
+## 🔧 Possible Improvements
+- Implementing a graphical UI using SDL or SFML
+- Adding a hold piece feature
+- Implementing ghost pieces for better positioning
+- Multiplayer mode
+- Sound effects and music
+
+Enjoy the game! 🎮
 
